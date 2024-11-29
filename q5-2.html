@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 5 by Dmitriy</title>
+    <link rel="stylesheet" href="./q5-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Special+Elite&family=Tiny5&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <h1 class="message">User not found!</h1>
+    <h2 class="message">Please login again.</h2>
+    <table class="timetable"></table>
+
+
+
+    <script>
+        function formatZeros(timeNum) {
+            if (timeNum < 10) {
+                timeNum = "0" + timeNum;
+            }
+            return timeNum;
+        }
+
+        var weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+        var userID = window.localStorage.getItem("userID");
+        var userPASS = window.localStorage.getItem("userPASS");
+        var userDATE = new Date(window.localStorage.getItem("userDATE"));
+
+        var welcomeMessage = `Welcome back <strong>${userID}</strong>!<br>`;
+        document.querySelector("h1.message").innerHTML = welcomeMessage;
+        var finalDate = `You logged in at ${weekDays[userDATE.getDay()]}., ${months[userDATE.getMonth()]}. ${userDATE.getDate()} ${userDATE.getFullYear()}, ${formatZeros(userDATE.getHours())}:${formatZeros(userDATE.getMinutes())}.`;
+        document.querySelector("h2.message").innerHTML = finalDate;
+
+
+        var userHour = userDATE.getHours();
+        var timePeriod = "";
+        var bodyElement = document.querySelector("body");
+        var tableElement = document.querySelector("table.timetable");
+        bodyElement.classList.remove("night-animation", "morning-animation", "afternoon-animation", "evening-animation");
+        if (userHour >= 18) {
+            timePeriod = "<i><strong>evening</strong></i>";
+            bodyElement.classList.add("evening-animation");
+            tableElement.classList.add("evening-animation"); 
+            document.querySelector("body").style.color = "lightgrey";
+        } else if (userHour >= 12) {
+            timePeriod = "<i><strong>afternoon</strong></i>";
+            bodyElement.classList.add("afternoon-animation");
+            tableElement.classList.add("afternoon-animation"); 
+            document.querySelector("body").style.color = "white";
+        } else if (userHour >= 6) {
+            timePeriod = "<i><strong>morning</strong></i>";
+            bodyElement.classList.add("morning-animation");
+            tableElement.classList.add("morning-animation"); 
+            document.querySelector("body").style.color = "white";
+        } else if (userHour >= 0) {
+            timePeriod = "<i><strong>night</strong></i>";
+            bodyElement.classList.add("night-animation");
+            tableElement.classList.add("night-animation"); 
+            document.querySelector("body").style.color = "white";
+        } else {
+            console.log("Error: Invalid userHour.");
+        }
+        document.querySelector("h2.message").innerHTML += `<br>Right now it's an ${timePeriod} time.`;
+
+
+        var timetable = document.querySelector("table.timetable");
+        var schedule = "<th class='timetable' colspan='2'>Time Ranges</th>\
+                        <tr class='timetable'><td class='timetable'>12 a.m. ~ 6 a.m.</td><td class='timetable'>night</td></tr>\
+                        <tr class='timetable'><td class='timetable'>6 a.m. ~ 12 p.m.</td><td class='timetable'>morning</td></tr>\
+                        <tr class='timetable'><td class='timetable'>12 p.m. ~ 6 p.m.</td><td class='timetable'>afternoon</td></tr>\
+                        <tr class='timetable'><td class='timetable'>6 p.m. ~ 12 a.m.</td><td class='timetable'>evening</td></tr>";
+        timetable.innerHTML = schedule;
+    </script>
+</body>
+
+</html>

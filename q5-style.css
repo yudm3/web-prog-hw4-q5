@@ -1,0 +1,181 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    min-height: 100vh;
+    transition: background-color 0.5s;
+    color: black;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+div.greeting-message {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+div.login-main-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 135px;
+}
+
+fieldset.login-fieldset {
+    background-color: whitesmoke;
+    box-shadow: 0 0 25px 5px whitesmoke;
+    border-radius: 1px;
+}
+
+div.login-box {
+    display: flex;
+    align-items: flex-start;
+}
+
+div.login-div {
+    background-color: lightgray;
+    border: 1px solid black;
+    padding: 15px;
+    width: 300px;
+}
+
+input.loginForm {
+    display: block;
+    text-align: left;
+    width: 95%;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+input[type="time"].loginForm {
+    width: auto;
+}
+
+input[type="submit"].loginForm {
+    width: auto;
+}
+
+table.userTable {
+    background-color: whitesmoke;
+    box-shadow: 0 0 25px 5px whitesmoke;
+    border-radius: 1px;
+    border: 1px solid grey;
+    text-align: center;
+    padding: 5px;
+    padding-bottom: 10px;
+}
+
+table th.userTable, tr.userTable, td.userTable {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+table th.userTable {
+    background-color: lightgrey;
+}
+
+h1.message {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 10px;
+    font-size: 3em;
+    font-family: "Special Elite", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h2.message {
+    text-align: center;
+    font-size: 1em;
+    font-weight: normal;
+    margin-bottom: 30px; 
+}
+
+table.timetable {
+    border-collapse: collapse;
+    margin: 0 auto 0 auto;
+    border: 2px solid;
+    font-family: none;
+}
+
+table.timetable, th.timetable, td.timetable {
+    border: 1px solid;
+    text-align: center;
+    padding: 4px;
+}
+
+@keyframes eveningColors {
+    0% { background-color: orangered; }
+    33% { background-color: darkorange; }
+    50% { color: black; }
+    66% { background-color: goldenrod; }
+    100% { background-color: orangered; }
+}
+
+.evening-animation {
+    animation: eveningColors 5s infinite;
+}
+
+@keyframes afternoonColors {
+    0% { background-color: skyblue; }
+    33% { background-color: khaki; color: grey; }
+    66% { background-color: orange; color: white; }
+    100% { background-color: skyblue; }
+}
+
+.afternoon-animation {
+    animation: afternoonColors 5s infinite;
+}
+
+@keyframes morningColors {
+    0% { background-color: goldenrod; }
+    33% { background-color: peachpuff; }
+    66% { background-color: lightyellow; color: black; border-color: black; }
+    100% { background-color: goldenrod; color: white; border-color: white; }
+}
+
+.morning-animation {
+    animation: morningColors 5s infinite;
+}
+
+@keyframes nightColors {
+    0% { background-color: darkblue; }
+    33% { background-color: indigo; color: lightyellow; }
+    66% { background-color: black; color: lightgrey; }
+    100% { background-color: darkblue; }
+}
+
+.night-animation {
+    animation: nightColors 5s infinite;
+}
+
+@keyframes loginPageColors {
+    0% { background-color: black; }
+    25% { background-color: darkblue; }
+    50% { background-color: goldenrod; }
+    75% { background-color: peachpuff; }
+    100% { background-color: black; }
+}
+
+.loginPage {
+    animation: loginPageColors 20s infinite;
+}
+
+@keyframes loginPageHeaderColors {
+    0% { color: lightgrey; }
+    20% { color: white; }
+    50% { color: darkblue; }
+    70% { color: black; }
+    95% { color: grey; }
+    100% { color: lightgrey; }
+}
+
+.loginPageHeader {
+    font-size: 3em;
+    font-family: "Special Elite", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    animation: loginPageHeaderColors 20s infinite;
+}

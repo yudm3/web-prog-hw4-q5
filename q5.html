@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 5 by Dmitriy</title>
+    <link rel="stylesheet" href="./q5-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Special+Elite&family=Tiny5&display=swap" rel="stylesheet">
+</head>
+
+<body class="loginPage" onload="displayUserTable()">
+
+    <div class="greeting-message">
+        <h1 class="loginPageHeader">HW4 Question 5</h1>
+    </div>
+
+    <div class="login-main-div">
+        <fieldset class="login-fieldset">
+            <form action="javascript:createUser()">
+                <div class="login-div">
+                    <label for="userID">User ID:</label>
+                    <input type="text" class="loginForm" id="userID">
+                    <label for="userPASS">User Password:</label>
+                    <input type="password" class="loginForm" id="userPASS">
+                    <label for="userDATE">Login Time:</label>
+                    <input type="time" class="loginForm" id="userDATE">
+                    <input type="submit" value="Login" class="loginForm">
+                </div>
+            </form>
+        </fieldset>
+        <table class="userTable">
+            <tr class="userTable">
+                <th class="userTable" colspan="2"><i>TEST USERS</i></th>
+            </tr>
+        </table>
+    </div>
+
+
+
+    <script>
+        var userList = [
+            ["dima", 123],
+            ["daria", 321],
+            ["vika", 111]
+        ];
+
+        function displayUserTable() {
+            var myTable = document.querySelector("table.userTable").innerHTML;
+            myTable += "<th class='userTable'>" + "<strong>ID</strong>" +
+                    "</th><th class='userTable'>" + "<strong>Password</strong>" + "</th>";
+            for (let i = 0; i < userList.length; i++) {
+                myTable += "<tr class='userTable'><td class='userTable'>" + userList[i][0] +
+                        "</td><td class='userTable'>" + userList[i][1] + "</td></tr>";
+            }
+            document.querySelector("table.userTable").innerHTML = myTable;
+        }
+
+        function createUser() {
+            current_user = new Object();
+
+            current_user.userID = document.getElementById("userID").value;
+            current_user.userPASS = document.getElementById("userPASS").value;
+            var userDATE = document.getElementById("userDATE").value;
+
+            if (current_user.userID == "" || current_user.userPASS == "") {
+                alert("Please enter your ID and Password!");
+                return;
+            }
+
+            if (userDATE == "") {
+                current_user.userDATE = new Date();
+                console.log(new Date);
+            } else {
+                var tempDateObj = new Date();
+                var userHourMinute = userDATE.split(":");
+                tempDateObj.setHours(parseInt(userHourMinute[0]));
+                tempDateObj.setMinutes(parseInt(userHourMinute[1]));
+                tempDateObj.setSeconds(0);
+                tempDateObj.setMilliseconds(0);
+                current_user.userDATE = tempDateObj;
+            }
+
+            var isFound = false;
+            for (let i = 0; i < userList.length; i++) {
+                if (current_user.userID == userList[i][0] &&
+                    current_user.userPASS == userList[i][1]
+                ) {
+                    isFound = true;
+                }
+            }
+
+            if (isFound == true) {
+                alert("Login is successful!");
+                window.localStorage.setItem("myVariable", 5);
+                window.localStorage.setItem("userID", current_user.userID);
+                window.localStorage.setItem("userPASS", current_user.userPASS);
+                window.localStorage.setItem("userDATE", current_user.userDATE);
+                window.open("./q5-2.html", "_self");
+            } else {
+                alert("Either ID or Password is incorrect!")
+                return;
+            }
+        }
+    </script>
+</body>
+
+</html>
