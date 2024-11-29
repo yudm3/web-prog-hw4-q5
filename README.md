@@ -127,10 +127,10 @@ if (userHour >= 18) {
 ## Screenshots
 
 ### Login Page
-![Login Page Screenshot](path-to-screenshot-login.png)
+![Login Page Screenshot](images/login.png)
 
 ### Welcome Page (Afternoon Theme)
-![Welcome Page Screenshot](path-to-screenshot-welcome.png)
+![Welcome Page Screenshot](images/welcome.png)
 
 ---
 
