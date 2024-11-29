@@ -1,9 +1,9 @@
 
-# Login Screen Assignment
+# Login Screen Project for HW4 Question 5
 
 ## Overview
 
-This project implements a dynamic and interactive login system with time-sensitive theming. It is designed to meet the requirements of an educational assignment, showcasing essential HTML, CSS, and JavaScript functionality.
+Welcome to the Login Screen Project for HW4 Question 5! This repository contains an interactive login screen implementation that meets the requirements specified in the task. It demonstrates HTML, CSS, and JavaScript integration to handle user input, authentication, and dynamic page theming.
 
 ## Features
 
@@ -18,7 +18,6 @@ This project implements a dynamic and interactive login system with time-sensiti
 - **index.html**: Main login page with user input fields.
 - **q5-2.html**: Welcome page displayed upon successful login.
 - **q5-style.css**: Stylesheet for theming and animations.
-- **script.js**: JavaScript for handling login, authentication, and theming logic.
 
 ## Instructions
 
@@ -72,6 +71,6 @@ This project implements a dynamic and interactive login system with time-sensiti
 ### Author
 
 Dmitriy Yugay  
-[GitHub Profile](https://github.com/YOUR-GITHUB-USERNAME)  
+[GitHub Profile](https://github.com/yudm3)  
 
 Feel free to explore, fork, and contribute to this project!
