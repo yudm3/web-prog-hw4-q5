@@ -129,7 +129,7 @@ if (userHour >= 18) {
 ### Login Page
 ![Login Page Screenshot](images/login.png)
 
-### Welcome Page (Afternoon Theme)
+### Welcome Page (Night Theme)
 ![Welcome Page Screenshot](images/welcome.png)
 
 ---
